@@ -1,0 +1,340 @@
+{
+	"info": {
+		"_postman_id": "fd1080a7-77e9-430f-93ce-f8ee1e851d13",
+		"name": "Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Registeration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"age\": 25,\r\n            \"name\": \" Mohamed Ashraf\",\r\n            \"email\": \"Mohamed_AHRAF@test.com\",\r\n            \"phone\": \"01234567890\",\r\n            \"password\":\"12345678910\",\r\n            \"gender\":\"male\",\r\n            \"role\":\"user\"\r\n            }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/user/register",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Log in",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"email\": \"Mohamed_AHRAF@test.com\",\r\n            \"password\":\"12345678910\"\r\n            }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/user/login",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/user/me",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{adminToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/user/showAll",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user",
+								"showAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{adminToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/user/showAll/623bcae9ee681c5ce4474cf2",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user",
+								"showAll",
+								"623bcae9ee681c5ce4474cf2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit user",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"age\": 20,\r\n            \"name\": \" Mohamed Kamel\",\r\n            \"email\": \"Mohamed_F@test.com\",\r\n            \"phone\": \"01234567890\",\r\n            \"password\":\"12345678910\",\r\n            \"gender\":\"male\"\r\n            }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/user/showAll/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user",
+								"showAll",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{adminToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/user/showAll/623bcae9ee681c5ce4474cf2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"showAll",
+								"623bcae9ee681c5ce4474cf2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add profile image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mohamed",
+									"type": "file",
+									"src": "/E:/NTI/Web Design/burger project/Mohamed Ashraf class-c burgers project/images/about.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/user/profileImg",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user",
+								"profileImg"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "Add post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{         \r\n      \"postType\" : \"txt\",\r\n      \"content\" : \"hello it's me\"\r\n\r\n            }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/post/add",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"post",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "my posts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/post/myPosts",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"post",
+								"myPosts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "localhost:3000",
+			"type": "default"
+		},
+		{
+			"key": "userToken",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQ1MmMyMjhmMDgyNTY3ZjQ4MWRlYjYiLCJpYXQiOjE2NDg3MDA0Njl9.-tJuX2YOqG1wEKq9IwNNAtyHdc-NnCFDGH5ksna-Wpc",
+			"type": "default"
+		},
+		{
+			"key": "adminToken",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQ1Mjg5NmFlNjZkZjk5OGI0OTMyYzQiLCJpYXQiOjE2NDg2OTk1OTh9.bxWM31A7LMEf9CTze34jj-IQKpmKKyTdoMmv8npPN-s",
+			"type": "default"
+		}
+	]
+}
